@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>LD_OnStartUp - Command 1</Text>
+    <Description>Some description</Description>
+    <Assembly>LD_OnStartUp\LD_OnStartUp.dll</Assembly>
+    <FullClassName>LD_OnStartUp.Command1</FullClassName>
+    <ClientId>8c4ded02-6a0f-4bef-9c2b-7322da5b9064</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Text>LD_OnStartUp - Command 2</Text>
+    <Description>Some description</Description>
+    <Assembly>LD_OnStartUp\LD_OnStartUp.dll</Assembly>
+    <FullClassName>LD_OnStartUp.Command2</FullClassName>
+    <ClientId>7277ec97-2cbf-48b2-aa17-fe15ec003b80</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>LD_OnStartUp</Name>
+    <Assembly>LD_OnStartUp\LD_OnStartUp.dll</Assembly>
+    <FullClassName>LD_OnStartUp.App</FullClassName>
+    <ClientId>48ab16d8-4ea6-4faf-9953-c7bf873bc38f</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+</RevitAddIns>
