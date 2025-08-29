@@ -16,20 +16,26 @@ namespace LD_OnStartUp
             var missingViewTemplates = CheckViewTemplates(curDoc);
             if (missingViewTemplates.Count > 0)
             {
-                violationsByCategory["VIEW TEMPLATE VIOLATIONS"] = missingViewTemplates;
+                violationsByCategory["NON-COMPLIANT VIEW TEMPLATES"] = missingViewTemplates;
             }
 
             // Check family compliance
+            var cabinetViolations = CheckFamilyPrefix(curDoc, BuiltInCategory.OST_Casework, "Casework");
+            if (cabinetViolations.Count > 0)
+            {
+                violationsByCategory["NON-COMPLIANT CABINETS"] = cabinetViolations;
+            }
+
             var doorViolations = CheckFamilyPrefix(curDoc, BuiltInCategory.OST_Doors, "Door");
             if (doorViolations.Count > 0)
             {
-                violationsByCategory["DOOR FAMILY VIOLATIONS"] = doorViolations;
+                violationsByCategory["NON-COMPLIANT DOORS"] = doorViolations;
             }
 
             var windowViolations = CheckFamilyPrefix(curDoc, BuiltInCategory.OST_Windows, "Window");
             if (windowViolations.Count > 0)
             {
-                violationsByCategory["WINDOW FAMILY VIOLATIONS"] = windowViolations;
+                violationsByCategory["NON-COMPLIANT WINDOWS"] = windowViolations;
             }
 
             // TODO: Add other compliance checks here
@@ -151,7 +157,7 @@ namespace LD_OnStartUp
                 reportLines.Add("==========================================");
                 reportLines.Add($"Project: {projectName}");
                 reportLines.Add($"Date: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
-                reportLines.Add($"Total Violations: {totalViolations}");
+                reportLines.Add($"Total Compliance Issues: {totalViolations}");
                 reportLines.Add("");
 
                 // Add each category section
@@ -196,13 +202,17 @@ namespace LD_OnStartUp
         {
             List<string> violations = new List<string>();
 
+            // check casework
+            var caseworkViolations = CheckFamilyPrefix(document, BuiltInCategory.OST_Casework, "Casework");
+            violations.AddRange(caseworkViolations);
+
             // Check doors
             var doorViolations = CheckFamilyPrefix(document, BuiltInCategory.OST_Doors, "Door");
             violations.AddRange(doorViolations);
 
             // Check windows
             var windowViolations = CheckFamilyPrefix(document, BuiltInCategory.OST_Windows, "Window");
-            violations.AddRange(windowViolations);
+            violations.AddRange(windowViolations);            
 
             return violations;
         }

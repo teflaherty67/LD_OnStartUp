@@ -1,4 +1,6 @@
-﻿namespace LD_OnStartUp
+﻿using LD_OnStartUp.Classes;
+
+namespace LD_OnStartUp
 {
     [Transaction(TransactionMode.Manual)]
     public class Command1 : IExternalCommand
@@ -8,19 +10,20 @@
             // Revit application and document variables
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
-            Document doc = uidoc.Document;
+            Document curDoc = uidoc.Document;
 
-            // Your code goes here
+            // your code goes here
 
             return Result.Succeeded;
         }
+
         internal static PushButtonData GetButtonData()
         {
             // use this method to define the properties for this command in the Revit ribbon
             string buttonInternalName = "btnCommand1";
             string buttonTitle = "Button 1";
 
-            Common.ButtonDataClass myButtonData = new Common.ButtonDataClass(
+            clsButtonData myButtonData = new Classes.clsButtonData(
                 buttonInternalName,
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
@@ -31,5 +34,4 @@
             return myButtonData.Data;
         }
     }
-
 }

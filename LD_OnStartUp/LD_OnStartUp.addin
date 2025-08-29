@@ -4,7 +4,7 @@
     <Text>LD_OnStartUp - Command 1</Text>
     <Description>Some description</Description>
     <Assembly>LD_OnStartUp\LD_OnStartUp.dll</Assembly>
-    <FullClassName>LD_OnStartUp.Command1</FullClassName>
+    <FullClassName>LD_OnStartUp.cmdUpdateRoomTags</FullClassName>
     <ClientId>8c4ded02-6a0f-4bef-9c2b-7322da5b9064</ClientId>
     <VendorId>com.YOUR COMPANY NAME</VendorId>
     <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
